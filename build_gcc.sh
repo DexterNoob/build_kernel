@@ -9,14 +9,14 @@ Any="$(pwd)/../AnyKernel3"
 # Make flashable zip
 MakeZip() {
     if [ ! -d $Any ]; then
-        git clone https://github.com/TeraaBytee/AnyKernel3 -b master $Any
+        git clone https://github.com/DexterNoob/AnyKernel3 -b r $Any
         cd $Any
     else
         cd $Any
         git reset --hard
-        git checkout master
-        git fetch origin master
-        git reset --hard origin/master
+        git checkout r
+        git fetch origin r
+        git reset --hard origin/r
     fi
     cp -af $MainPath/out/arch/arm64/boot/Image.gz-dtb $Any
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit test by $KBUILD_BUILD_USER/g" anykernel.sh
@@ -28,7 +28,7 @@ MakeZip() {
 HeadCommit="$(git log --pretty=format:'%h' -1)"
 export ARCH="arm64"
 export SUBARCH="arm64"
-export KBUILD_BUILD_USER="TeraaBytee"
+export KBUILD_BUILD_USER="Noobbeast"
 export KBUILD_BUILD_HOST="GithubServer"
 Defconfig="begonia_user_defconfig"
 KERNEL_NAME=$(cat "$MainPath/arch/arm64/configs/$Defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
@@ -46,13 +46,13 @@ make  -j$(nproc --all)  O=out \
                         PATH=$GCC64/bin:$GCC/bin:/usr/bin:${PATH} \
                         CROSS_COMPILE=aarch64-elf- \
                         CROSS_COMPILE_ARM32=arm-eabi- \
-                        AR=aarch64-elf-ar \
-                        NM=llvm-nm \
-                        LD=ld.lld \
-                        OBCOPY=llvm-objcopy \
-                        OBJDUMP=aarch64-elf-objdump \
-                        STRIP=aarch64-elf-strip \
+                        LD=ld.lld
                         2>&1 | tee out/build.log
+
+
+
+
+
 
 if [ -e $MainPath/out/arch/arm64/boot/Image.gz-dtb ]; then
     BUILD_END=$(date +"%s")
