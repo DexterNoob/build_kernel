@@ -28,7 +28,7 @@ MakeZip() {
 HeadCommit="$(git log --pretty=format:'%h' -1)"
 export ARCH="arm64"
 export SUBARCH="arm64"
-export KBUILD_BUILD_USER="Noobbeast"
+export KBUILD_BUILD_USER="Noobbeast🐒"
 export KBUILD_BUILD_HOST="GithubServer"
 Defconfig="begonia_user_defconfig"
 KERNEL_NAME=$(cat "$MainPath/arch/arm64/configs/$Defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
