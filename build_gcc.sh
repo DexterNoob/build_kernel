@@ -46,7 +46,7 @@ make  -j$(nproc --all)  O=out \
                         PATH=$GCC64/bin:$GCC/bin:/usr/bin:${PATH} \
                         CROSS_COMPILE=aarch64-elf- \
                         CROSS_COMPILE_ARM32=arm-eabi- \
-                        LD=ld.lld
+                        LD=aarch64-elf-ld
                         2>&1 | tee out/build.log
 
 
