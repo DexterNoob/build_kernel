@@ -43,7 +43,7 @@ rm -rf out
 BUILD_START=$(date +"%s")
 
 make  -j$(nproc --all)  O=out ARCH=arm64 SUBARCH=arm64 $Defconfig
-make  -j$(nproc --all)  O=out CONFIG_CC_STACKPROTECTOR_STRONG=y \
+make  -j$(nproc --all)  O=out CONFIG_CC_STACK_PROTECTOR_STRONG=y \
                         PATH="$dtc/bin:/$gcc64/bin:/$gcc/bin:/usr/bin:$PATH" \
                         LD_LIBRARY_PATH="$dtc/lib64:$LD_LIBRABRY_PATH" \
                         CC=clang \
