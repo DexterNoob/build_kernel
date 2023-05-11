@@ -4,8 +4,8 @@ GCC64="$(pwd)/GCC64"
 GCC="$(pwd)/GCC"
 
 if [ ! -d $GCC64 ]; then
-    git clone --depth=1 https://github.com/DexterNoob/gcc-arm64 -b 13 $GCC64
+    git clone --depth=1 https://github.com/DexterNoob/gcc-arm64 -b master $GCC64
 fi
 if [ ! -d $GCC ]; then
-    git clone --depth=1 https://github.com/DexterNoob/gcc-arm -b 13 $GCC
+    git clone --depth=1 https://github.com/DexterNoob/gcc-arm -b master $GCC
 fi
