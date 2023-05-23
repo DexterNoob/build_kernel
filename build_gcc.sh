@@ -49,11 +49,6 @@ make  -j$(nproc --all)  O=out \
                         LD=aarch64-elf-ld
                         2>&1 | tee out/build.log
 
-
-
-
-
-
 if [ -e $MainPath/out/arch/arm64/boot/Image.gz-dtb ]; then
     BUILD_END=$(date +"%s")
     DIFF=$((BUILD_END - BUILD_START))
