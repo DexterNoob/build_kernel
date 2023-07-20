@@ -37,7 +37,7 @@ ZIP_KERNEL_VERSION="v4.14.$(cat "$MainPath/Makefile" | grep "SUBLEVEL =" | sed '
 TIME=$(date +"%m%d%H%M")
 
 # Start building
-Compiler=KangRibut
+Compiler=DTC
 MAKE="./makeparallel"
 rm -rf out
 BUILD_START=$(date +"%s")
