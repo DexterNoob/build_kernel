@@ -74,10 +74,10 @@ jobs:
                 curl -F chat_id="$CHAT_ID" \
                 -F document=@"$ZIP" \
                 -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument \
-                -F caption="$(cat TIME) @TeraaBytee"
+                -F caption="$(cat TIME) @Mr.Kintil"
             else
                 curl -F chat_id="$CHAT_ID" \
                 -F document=@"out/error.log" \
                 -F parse_mode=markdown https://api.telegram.org/bot$BOT_TOKEN/sendDocument \
-                -F caption="$(cat TIME) @TeraaBytee"
+                -F caption="$(cat TIME) @Mr.Kintil"
             fi
